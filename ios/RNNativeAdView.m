@@ -55,7 +55,7 @@
         if (error) {
             self.onNativeAdFailed(@{@"error":error.localizedDescription});
         } else {
-            self.onNativeAdLoaded(@{});
+			self.onNativeAdLoaded(@{@"data": response.properties});
 
             self.mpNativeAd = response;
             self.mpNativeAd.delegate = self;

@@ -1,7 +1,8 @@
 import React from "react";
-import { 
+import {
     NativeSyntheticEvent,
-    requireNativeComponent, 
+    requireNativeComponent,
+    StyleProp, ViewStyle
 } from "react-native";
 
 const NativeAdView = requireNativeComponent("RNNativeAdView");
@@ -29,24 +30,26 @@ export interface IRNNativeAdViewProps {
     adUnitId: string,
     format: "list",
     children?: React.ReactNode,
-    onAdLoaded: () => void,
+    onAdLoaded: (response: any) => void,
     onAdFailed?: (error: INativeAdError) => void,
     onAdOpen?: (message: INativeAdMessage) => void,
     onAdClose?: (message: INativeAdMessage) => void,
     onImpressionData: (jsonImpressionData: any) => void,
-    onAdLayout: ({ height, width}: { height: number, width: number}) => void
+    onAdLayout: ({ height, width }: { height: number, width: number }) => void,
+    style?: StyleProp<ViewStyle>,
 }
 
-export const RNNativeAdView = ({ 
+export const RNNativeAdView = ({
     adUnitId,
     format,
     children,
     onAdLoaded,
-    onAdFailed = () => {},
+    onAdFailed = () => { },
     onAdOpen,
     onAdClose,
     onImpressionData,
     onAdLayout,
+    style
 }: IRNNativeAdViewProps) => {
     return (
         <NativeAdView
@@ -58,8 +61,18 @@ export const RNNativeAdView = ({
             onDidDismissModalForNativeAd={onAdClose}
             onImpressionData={(event: NativeSyntheticEvent<IImpressionData>) => onImpressionData(event.nativeEvent.impressionData)}
             onAdLayout={(event: NativeSyntheticEvent<INativeAdLayout>) => onAdLayout(event.nativeEvent)}
+            style={style}
         >
             {children}
         </NativeAdView>
     );
+}
+export interface NativeAdData {
+    adUnitId: string;
+    ctatext: string;
+    iconimage: string;
+    mainimage: string;
+    privacyicon: string;
+    text: string;
+    title: string;
 }
