@@ -1,7 +1,7 @@
 import { NativeEventEmitter, NativeModules } from "react-native";
-const { RNMoPubInterstitial } = NativeModules;
+const { RNAppOpenAd } = NativeModules;
 
-export interface IRNMoPubInterstitial {
+export interface IRNAppOpenAd {
   addEventListener: (eventType: string, listener: (arg: any) => void) => void;
   initializeInterstitialAd: (adUnitId: string) => void;
   loadAd: () => void;
@@ -11,14 +11,14 @@ export interface IRNMoPubInterstitial {
   show: () => void;
 }
 
-const emitter = new NativeEventEmitter(RNMoPubInterstitial);
+const emitter = new NativeEventEmitter(RNAppOpenAd);
 
 export default {
   addEventListener: (eventType, listener) => emitter.addListener(eventType, listener),
-  initializeInterstitialAd: (adUnitId) => RNMoPubInterstitial.initializeInterstitialAd(adUnitId),
-  isReady: () => RNMoPubInterstitial.isReady(),
-  loadAd: () => RNMoPubInterstitial.loadAd(),
+  initializeInterstitialAd: (adUnitId) => RNAppOpenAd.initializeInterstitialAd(adUnitId),
+  isReady: () => RNAppOpenAd.isReady(),
+  loadAd: () => RNAppOpenAd.loadAd(),
   removeAllListeners: (eventType) => emitter.removeAllListeners(eventType),
-  setKeywords: (keywords) => RNMoPubInterstitial.setKeywords(keywords),
-  show: () => RNMoPubInterstitial.show(),
-} as IRNMoPubInterstitial;
+  setKeywords: (keywords) => RNAppOpenAd.setKeywords(keywords),
+  show: () => RNAppOpenAd.show(),
+} as IRNAppOpenAd;

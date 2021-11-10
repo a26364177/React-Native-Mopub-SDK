@@ -13,4 +13,6 @@
 @property (nonatomic, retain) MPInterstitialAdController *interstitial;
 @end
 
+@interface RNAppOpenAd: RNMoPubInterstitial
+@end
 

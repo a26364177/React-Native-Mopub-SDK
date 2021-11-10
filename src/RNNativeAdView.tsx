@@ -67,7 +67,7 @@ export const RNNativeAdView = ({
         </NativeAdView>
     );
 }
-export interface NativeAdData {
+export interface NativeAdDataType {
     adUnitId: string;
     ctatext: string;
     iconimage: string;
