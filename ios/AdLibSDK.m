@@ -20,15 +20,14 @@ RCT_EXPORT_MODULE();
 }
 
 
-RCT_EXPORT_METHOD(initializeSDK:(NSString *)unitID) 
+RCT_EXPORT_METHOD(initializeSDK:(NSString *)unitID)
 {
-    MPMoPubConfiguration *sdkConfig = [[MPMoPubConfiguration alloc] initWithAdUnitIdForAppInitialization: unitID];
-    sdkConfig.loggingLevel = MPBLogLevelDebug;
-    [[MoPub sharedInstance] grantConsent];
-    [[MoPub sharedInstance] initializeSdkWithConfiguration:sdkConfig completion:^{
-        NSLog(@"SDK initialization complete");
-        [self sendEventWithName:@"onSDKInitialized" body:nil];
-    }];
+	MPMoPubConfiguration *sdkConfig = [[MPMoPubConfiguration alloc] initWithAdUnitIdForAppInitialization: unitID];
+	sdkConfig.loggingLevel = MPBLogLevelDebug;
+	[[MoPub sharedInstance] initializeSdkWithConfiguration:sdkConfig completion:^{
+		NSLog(@"SDK initialization complete");
+		[self sendEventWithName:@"onSDKInitialized" body:nil];
+	}];
 }
 
 @end
