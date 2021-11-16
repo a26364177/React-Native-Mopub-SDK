@@ -5,7 +5,7 @@ import {
     StyleProp, ViewStyle
 } from "react-native";
 
-const NativeAdView = requireNativeComponent("RNNativeAdView");
+const NativeAdView = requireNativeComponent("RNNativeAdView") as any;
 
 export type NativeAdFormat = "list"
 
