@@ -57,8 +57,8 @@ dependencies {
 
     // Required for Native Ads
     // Google (AdMob & Ad Manager)
-    implementation 'com.google.android.gms:play-services-ads:20.0.0'
-    implementation 'com.mopub.mediation:admob:20.0.0.1'
+    // implementation 'com.google.android.gms:play-services-ads:20.0.0'
+    // implementation 'com.mopub.mediation:admob:20.0.0.1'
     // Facebook Network
     implementation 'com.facebook.android:audience-network-sdk:6.4.0'
     implementation 'com.mopub.mediation:facebookaudiencenetwork:6.4.0.0'

@@ -18,8 +18,8 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.facebook.react.views.view.ReactViewGroup;
 
 import com.mopub.nativeads.FacebookAdRenderer;
-import com.mopub.nativeads.GooglePlayServicesAdRenderer;
-import com.mopub.nativeads.GooglePlayServicesViewBinder;
+// import com.mopub.nativeads.GooglePlayServicesAdRenderer;
+// import com.mopub.nativeads.GooglePlayServicesViewBinder;
 import com.mopub.nativeads.AdapterHelper;
 import com.mopub.nativeads.BaseNativeAd;
 import com.mopub.nativeads.MoPubNative;
@@ -121,13 +121,13 @@ public class RNNativeAdView extends RelativeLayout implements MoPubNative.MoPubN
             .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
             .build());
         // Google rendered
-        final GooglePlayServicesAdRenderer googlePlayServicesAdRenderer = new GooglePlayServicesAdRenderer(
-            new GooglePlayServicesViewBinder.Builder(R.layout.native_ads_list)
-            .iconImageId(R.id.native_icon_image)
-            .titleId(R.id.native_title)
-            .textId(R.id.native_text)
-            .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
-            .build());
+        // final GooglePlayServicesAdRenderer googlePlayServicesAdRenderer = new GooglePlayServicesAdRenderer(
+        //     new GooglePlayServicesViewBinder.Builder(R.layout.native_ads_list)
+        //     .iconImageId(R.id.native_icon_image)
+        //     .titleId(R.id.native_title)
+        //     .textId(R.id.native_text)
+        //     .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+        //     .build());
         FacebookAdRenderer facebookAdRenderer = new FacebookAdRenderer(
         new FacebookAdRenderer.FacebookViewBinder.Builder(R.layout.native_ads_list)
           .titleId(R.id.native_title)
@@ -140,7 +140,7 @@ public class RNNativeAdView extends RelativeLayout implements MoPubNative.MoPubN
 
         // Mopub has to be last
         moPubNative.registerAdRenderer(facebookAdRenderer);
-        moPubNative.registerAdRenderer(googlePlayServicesAdRenderer);
+        // moPubNative.registerAdRenderer(googlePlayServicesAdRenderer);
         moPubNative.registerAdRenderer(moPubStaticNativeAdRenderer);
 
         EnumSet<RequestParameters.NativeAdAsset> desiredAssets = EnumSet.of(
